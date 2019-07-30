@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @keyframes move {
+      0% {
+        transform: translate3d(0px, 0, 0)
+      }
+
+      50% {
+        transform: translate3d(10px, 0, 0)
+      }
+
+      100% {
+        transform: translate3d(0px, 0, 0)
+      }
+    }
+
+    .xxx {
+      animation: move 1s linear infinite;
+    }
+
+    li {
+      position: relative;
+      overflow: hidden;
+    }
+
+    p {
+      margin: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="xxx">
+    点击取消多余复合层
+  </div>
+  <ul id="u">
+  </ul>
+</body>
+<script>
+  const div = document.getElementsByClassName('xxx')[0];
+  const ul = document.getElementById('u');
+  let n = 0, z = true;
+  const fg = document.createDocumentFragment();
+  div.onclick = function() {
+    const css = z ? 'position:relative;z-index:10' : 'position:static;';
+    z = !z;
+    div.style.cssText += css;
+    
+  }
+  while (n < 50) {
+    n++;
+    const txt = document.createTextNode('我是一些文字');
+    const p = document.createElement('p');
+    p.appendChild(txt);
+    const li = document.createElement('li');
+    li.appendChild(p);
+    fg.appendChild(li);
+  }
+  ul.appendChild(fg);
+</script>
+</html>
