@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img{
+      display: block;
+      width: 500px;
+      height: 200px;
+      margin: 20px auto;
+      outline: 5px solid red;
+    }
+    .bg1{
+      object-fit: contain;
+    }
+    .bg2{
+      object-fit: cover;
+    }
+    .bg3{
+      object-fit: fill;
+    }
+    .bg4{
+      object-fit: fill;
+      object-position: 20px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>固定宽度图片</h1>
+  <img src="./bg.jpg" alt="">
+  <h1>object-fit:contain</h1>
+  <img src="./bg.jpg" alt="" class="bg1">
+  <h1>object-fit:cover</h1>
+  <img src="./bg.jpg" alt="" class="bg2">
+  <h1>object-fit:fill</h1>
+  <img src="./bg.jpg" alt="" class="bg3">
+  <h1>object-fit:fill + objec-position</h1>
+  <img src="./bg.jpg" alt="" class="bg4">
+</body>
+</html>
