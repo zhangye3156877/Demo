@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      outline: 1px solid black;
+      margin: 20px 0;
+      text-align: center;
+      line-height: 100px;
+    }
+    :root{
+      --font-color:red;
+      --bg-color: yellow;
+    }
+    .box1{
+      --font-color: pink;
+      --bg: skyblue;
+      color: var(--font-color);
+      background: var(--bg);
+    }
+    .box2{
+      color: var(--font-color);
+      background: var(--bg-color);
+    }
+  </style>
+</head>
+<body>
+  <h1>应用了局部变量</h1>
+  <div class="box1">文字</div>
+  <h1>应用了全局变量</h1>
+  <div class="box2">文字</div>
+</body>
+</html>
