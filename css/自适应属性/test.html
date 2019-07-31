@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .floor1>div {
+      height: 100px;
+      margin: 20px 0;
+      display: inline-block;
+      background: green;
+    }
+
+    .floor1 .box2 {
+      width: -webkit-fill-available;
+    }
+
+    .floor2 {
+      border: 1px solid black;
+      height: 100px;
+      margin: 20px 0;
+    }
+
+    .floor2>div {
+      display: inline-block;
+      background: pink;
+    }
+
+    .floor2 .box2 {
+      height: -webkit-fill-available;
+    }
+
+    .floor3>div {
+      height: 100px;
+      margin: 20px 0;
+      background: skyblue;
+    }
+
+    .floor3 .box2 {
+      width: -webkit-fit-content;
+    }
+    .floor4,.floor5 {
+      margin: 20px 0;
+      border: 1px solid black;
+    }
+    .floor4 > div div:first-child {
+      width: 400px;
+      background: peru;
+    }
+    .floor4 .box2{
+      width: -webkit-min-content;
+      margin-top: 40px;
+    }
+    .floor5 > div div:first-child {
+      width: 400px;
+      background: palevioletred;
+    }
+    .floor5 .box2{
+      width: -webkit-max-content;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="floor1 wrap">
+    <h1>fill-available:表示撑满可用空间</h1>
+    <div class="box1">
+      普通inline-block盒子
+    </div>
+    <div class="box2">
+      width应用-webkit-fill-available的inline-block盒子
+    </div>
+  </div>
+  <div class="floor2 wrap">
+    <div class="box1">
+      普通inline-block盒子
+    </div>
+  </div>
+  <div class="floor2 wrap">
+    <div class="box2">
+      height应用-webkit-fill-available的inline-block盒子
+    </div>
+  </div>
+  <hr>
+  <div class="floor3 wrap">
+    <h1>fit-content:表示将元素宽度收缩为内容尺寸</h1>
+    <div class="box1">
+      普通block盒子
+    </div>
+    <div class="box2">
+      width应用-webkit-fit-content的block盒子
+    </div>
+  </div>
+  </div>
+  <hr>
+  <h1>min-content:表示最小值采用内部元素最小值的那个元素的宽度作为最终容器的尺寸</h1>
+  <div class="floor4 wrap">
+    <div class="box1">
+      <div>宽度为400px，且外层未应用min-content</div>
+      <div>此处为一段自适应宽度的长文字此处为一段自适应宽度的长文字此处为一段自适应宽度的长文字此处为一段自适应宽度的长文字此处为一段自适应宽度的长文字</div>
+    </div>
+    <div class="box2">
+        <div>宽度为400px，且外层已经应用min-content</div>
+        <div>此处为一段自适应宽度的长文字此处为一段自适应宽度的长文字此处为一段自适应宽度的长文字此处为一段自适应宽度的长文字此处为一段自适应宽度的长文字</div>  
+    </div>
+  </div>
+  <hr>
+  <h1>max-content:表示采用内部元素宽度值最大的那个元素的宽度作为最终容器的宽度。如果出现文本，则相当于文本不换行</h1>
+    
+  <div class="floor5 wrap">
+      <div class="box1">
+        <div>宽度为400px，且外层未应用max-content</div>
+        <div>此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字</div>
+      </div>
+      <div class="box2">
+          <div>宽度为400px，且外层已经应用max-content</div>
+          <div>此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字此处为一段自适应宽度的超长文字</div>  
+      </div>
+    </div>
+</body>
+
+</html>
