@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    h1,div{
+      text-align: center;
+    }
+    /* radio */
+    input[type="radio"]{
+      width: 20px;
+      height: 20px;
+      position: relative;
+      outline: none;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
+      border-radius: 50%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input[type="radio"]:hover{
+      border: 1px solid #1890ff;
+    }
+    input[type="radio"]:checked{
+      background-color: #1890ff;
+    }
+    input[type="radio"]::after{
+     content: '';
+     position: absolute;
+     width: 8px;
+     height: 8px;
+     border-radius: 50%;
+     background-color: #fff;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%) scale(0);
+     transition: all .3s;
+    }
+    input[type="radio"]:checked::after{
+      background-color: #fff;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    /* checkbox */
+    input[type="checkbox"]{
+      width: 20px;
+      height: 20px;
+      position: relative;
+      outline: none;
+      background-color: #fff;
+      border: 1px solid #d9d9d9;
+      border-radius: 5px;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input[type="checkbox"]:hover{
+      border: 1px solid #1890ff;
+    }
+    input[type="checkbox"]:checked{
+      background-color: #1890ff;
+    }
+    input[type="checkbox"]::after{
+     content: '';
+     position: absolute;
+     width: 9px;
+     height: 4px;
+     border: 2px solid #fff;
+     border-top:none;
+     border-right: none; 
+     left: 50%;
+     top: 50%;
+     opacity: 0;
+     transform: translate(-50%, -50%) rotate(-45deg);
+     transition: all .3s;
+    }
+    input[type="checkbox"]:checked::after{
+     opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h1>radio效果美化</h1>
+  <div>
+      <input type="radio" name="color" value="black">
+      <input type="radio" name="color" value="red">
+      <input type="radio" name="color" value="yellow">
+  </div>
+  <h1>checkbox效果美化</h1>
+  <div>
+      <input type="checkbox" name="animal" value="cat">
+      <input type="checkbox" name="animal" value="dog">
+      <input type="checkbox" name="animal" value="bird">
+  </div>
+</body>
+</html>
