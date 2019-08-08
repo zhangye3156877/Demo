@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    @keyframes move {
+      0% {
+        transform: translate3d(0px, 0, 0)
+      }
+
+      50% {
+        transform: translate3d(10px, 0, 0)
+      }
+
+      100% {
+        transform: translate3d(0px, 0, 0)
+      }
+    }
+
+    .xxx {
+      animation: move 1s linear infinite;
+    }
+
+    li {
+      position: relative;
+      overflow: hidden;
+    }
+
+    p {
+      margin: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="xxx">
+    move
+  </div>
+  <ul id="u">
+  </ul>
+</body>
+<script>
+  var a = 0;
+  var b, c = false;
+  console.time('time');
+  const wk1 = new Worker('./worker2.js');
+  const wk2 = new Worker('./worker3.js');
+  wk1.onmessage = function () {
+    b = true;
+    console.log('worker1 done');
+  }
+  wk2.onmessage = function () {
+    c = true;
+    console.log('worker2 done');
+  }
+  while (a < 1000000000) {
+    a++;
+  }
+  const tt = setInterval(() => {
+    if (c && b && a >= 1000000000) {
+      console.timeEnd('time');
+      return clearInterval(tt);
+    }
+    //console.log('not yet')
+  })
+</script>
+
+</html>
