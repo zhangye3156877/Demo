@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+ var evtype = 'onwheel' in window ? 'wheel' : 'mousewheel';
+ document.addEventListener(evtype, function() {
+  var direct = Math.sign(e.originalEvent.deltaY || -e.originalEvent.wheelDelta || e.originalEvent.detail) > 0;
+  // true 下 false 上 未兼容ie事件绑定 只兼容滚轮时间差异
+  console.log(direct)
+ })
+</script>
+</html>
