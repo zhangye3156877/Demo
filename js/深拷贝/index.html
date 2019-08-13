@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>详情见console</h1>
+</body>
+<script>
+  // 深度复制
+  function deepClone(obj, isArray) {
+    const newObj = isArray ? [] : {};
+    for (let i in obj) {
+      if (!obj.hasOwnProperty(i)) {
+        continue;
+      }
+      const type_ = typeof obj[i];
+      if (type_ === 'object' && type_ !== null) {
+        newObj[i] = deepClone(obj[i], obj[i] instanceof Array);
+        continue;
+      }
+      newObj[i] = obj[i];
+    }
+   return newObj
+  }
+  // 测试
+  let a1 = {
+    a: 1,
+    b: 'xx',
+    c: {
+      cc1: 4,
+      cc2: {
+        ccc1: function() {
+          console.log(1)
+        },
+      cc3: [1, 2, 3, {ccc: 'xx'}]
+      }
+    },
+    d: null,
+    e: undefined,
+    f: true,
+    g: [
+      'y',
+      66,
+      {
+        gg1: 1,
+        gg2: [3, 4, 5],
+        gg3: {
+          ggg1: 'z'
+        }
+      }
+    ]
+  }
+  let b1 = [
+    1,
+    2,
+    true,
+    function() {alert(1)},
+    {bb1: 1, bb2: [11, {ccc1: true, ccc2: false}], bb3: {ccc3: 55}},
+    ['x', 'xx', [1, 2, 3], {dd: 'yy'}]
+  ];
+  let a2 = deepClone(a1);
+  let b2 = deepClone(b1, true);
+  console.log(a1, a2, a1 === a2);
+  console.log(b1, b2, b1 === b2);
+</script>
+</html>
