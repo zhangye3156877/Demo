@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .w{
+      width: 95%;
+      height: 400px;
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+    .x{
+      width: 30%;
+      height: 200px;
+      margin: 100px auto;
+      border: 1px dashed red;
+      position: relative;
+      display: flex;
+    }
+    .x>div{
+      /* position: absolute; */
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+    .x>div:nth-child(1){
+      background: pink;
+    }
+    .x>div:nth-child(2){
+      background: peru;
+    }
+    .x>div:nth-child(3){
+      background: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <h1>利用flex-shrink属性实现自适应宽度的不换行效果</h1>
+  <h1>对比float自适应无法突破父级宽度</h1>
+  <h1>定位需要分别进行倍数定位</h1>
+  <div class="w">
+    <div class="x">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+</html>
