@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>xml解析+获取文本内容的不同方式</h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+</body>
+<script>
+  var xmls = `
+<address xmlns:p='example.com/postal' xmlns:s='example.com/street' xmlns:sn='example.com/streetNum'>
+  <s:street>Roble Ave</s:street>
+  <sn:streetNumber>649</sn:streetNumber>
+  <p:postalcode>94025</p:postalcode>
+</address>`;
+
+var parser = new DOMParser();
+var xmlDoc = parser.parseFromString(xmls, 'text/xml');
+
+var h1s = document.querySelectorAll('h1');
+h1s[1].innerHTML = xmlDoc.getElementsByTagName("s:street")[0].textContent;
+h1s[2].innerHTML = xmlDoc.getElementsByTagName("sn:streetNumber")[0].childNodes[0].nodeValue;
+h1s[3].innerHTML = xmlDoc.getElementsByTagName("p:postalcode")[0].innerHTML;
+
+</script>
+</html>
