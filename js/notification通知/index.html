@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>只能在服务器状态下运行</h1>
+  <img src="/img" alt="">
+  <button id="btn">重新获取通知权限</button>
+  <button id="close">关闭通知框</button>
+</body>
+<script>
+  var permission = Notification.permission;
+  var notice;
+  var btn = document.getElementById('btn');
+  var close = document.getElementById('close');
+  var timer = setInterval(() => {
+    console.log(permission)
+    if (permission == "granted") {
+      // 已同意，开始发送通知
+      clearInterval(timer);
+      notice = new Notification("通知内容标题x", {
+        body: "这是通知的具体内容",
+        icon: "/img",
+        data: {
+          url: "https://www.baidu.com"
+        }
+      });
+      // 绑定通知事件
+      notice.onclick = function() {
+        alert('点击通知框');
+      }
+      notice.onshow = function() {
+        alert('通知框显示');
+      }
+      notice.onclose = function() {
+        alert('通知框关闭');
+      }
+      notice.onerror = function() {
+        alert('通知框错误');
+      }
+    } else if (permission == "denied") {
+      // 不同意，发不了咯
+    } else {
+      // 其他状态，可以重新发送授权提示
+      //Notification.requestPermission();
+    }
+  }, 1000);
+  btn.onclick = function () {
+    Notification.requestPermission();
+  }
+  close.onclick = function() {
+    notice && notice.close();
+  }
+
+
+
+</script>
+
+</html>
