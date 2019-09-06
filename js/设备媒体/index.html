@@ -48,7 +48,7 @@
       <img src="" alt="" id="img">
     </div>
     <div>
-      <h1>RTC音频v1.1</h1>
+      <h1>RTC音频v1.2</h1>
       <audio src="" id="audio" controls></audio>
       <div class="btn" id="open-audio">开启声道</div>
       <div class="btn" id="close-audio">关闭声道</div>
@@ -143,11 +143,8 @@
   pa.onclick = function () {
     if (!recordedAudioBlobs || recordedAudioBlobs.length === 0) {
       console.log(recordedAudioBlobs)
-      document.write(recordedAudioBlobs)
       return alert('请先录音');
     }
-    audio.load();
-    audio.pause(); 
     audio.play();
   }
 </script>

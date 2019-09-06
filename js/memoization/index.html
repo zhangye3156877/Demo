@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>js</h1>
+</body>
+<script>
+  var memo = ((func) => {
+    var cache = [];
+    return (n) => {
+      if (cache[n - 1]) {
+        return cache[n - 1]
+      }
+      cache[n - 1] = func.call(null, n);
+      return cache[n - 1]
+    }
+  })(ji)
+
+  function ji(x) {
+    if (x === 1) {
+      return 1
+    }
+    return x * ji(x - 1);
+  }
+
+
+  var y1 = memo(5, ji)
+  var y2 = memo(6, ji)
+  var y3 = memo(1, ji)
+</script>
+
+</html>
