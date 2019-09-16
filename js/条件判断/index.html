@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>JS条件判断：if转换</h1>
+  <ul>
+    <h3>非boolean类型会转换成boolean类型判断</h3>
+    <li>undefined => false</li>
+    <li>null => false</li>
+    <li>string 空字符串 => false , 其他 => true</li>
+    <li>number 0 -0 +0 NaN => false, 其他 => true</li>
+    <li>Object => true</li>
+  </ul>
+  <h1>JS == 判断</h1>
+  <ul>
+    <h3>typeof A 与 typeof B 相同</h3>
+    <li>类型为 undefined 或 null 时 =>true</li>
+    <li>类型为 number 任意一方为 NaN 或 数值不等时 => false , 数值相等时 => true(+0,0,-0完全相等)</li>
+    <li>类型为 string 完全一致时 => true</li>
+    <li>类型为 object 引用一致 => true</li>
+    <h3>typeof A 与 typeof B 不同</h3>
+    <li>A 为 null B 为 undefined => true</li>
+    <li>A 为 number B 为 string 比较 A == Number(B)</li>
+    <li>A 为 boolean B 为非 boolean 比较 Number(A) == B</li>
+    <li>A 为 object B 为 string 或 number 比较 toPrimitive(A) == B
+      <br />
+      (toPrimitive为内部方法. 
+      <br/>
+      1.如果输入值是原始值，直接返回这个值；
+      <br />
+      2. 否则，如果是对象，调用valueOf()，如果结果是原始值，返回结果；
+      <br />
+      3. 否则，调用toString()。如果结果是原始值，返回结果；
+      <br />
+      4. 否则，抛出错误。)
+    </li>
+    <li>其他情况 => false</li>
+  </ul>
+</body>
+<script>
+  if (undefined) {
+    console.log('undefined 为 true')
+  } else {
+    console.log('undefined 为 false')
+  }
+  if (null) {
+    console.log('null 为 true')
+  } else {
+    console.log('null 为 false')
+  }
+  if ('') {
+    console.log('空字符串 为 true')
+  } else {
+    console.log('空字符串 为 false')
+  }
+  if (' ') {
+    console.log('非空字符串 为 true')
+  } else {
+    console.log('非空字符串 为 false')
+  }
+  if (+0) {
+    console.log('number0 为 true')
+  } else {
+    console.log('number0 为 false')
+  }
+  if (1) {
+    console.log('number1 为 true')
+  } else {
+    console.log('number1 为 false')
+  }
+  if (NaN) {
+    console.log('number NaN 为 true')
+  } else {
+    console.log('number NaN 为 false')
+  }
+  if (Infinity) {
+    console.log('number Infinity 为 true')
+  } else {
+    console.log('number Infinity 为 false')
+  }
+  if ([] && {} && function () { }) {
+    console.log('object 为 true')
+  } else {
+    console.log('number Infinity 为 false')
+  }
+  // 第二部分
+  if (null == undefined) {
+    console.log('null == undefined 为 true')
+  } else {
+    console.log('null == undefined 为 false')
+  }
+  if (0 == ' ') {
+    console.log('0 == " " 为 true')
+  } else {
+    console.log('0 == " " 为 false')
+  }
+  if (1 == true) {
+    console.log('1 == true 为 true')
+  } else {
+    console.log('1 == true 为 false')
+  }
+  if ('[object Object]' == {}) {
+    console.log('"[object Object]" == {} 为 true')
+  } else {
+    console.log('"[object Object]" == {} 为 false')
+  }
+</script>
+
+</html>
