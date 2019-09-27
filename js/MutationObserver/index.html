@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 500px;
+      border: 1px solid black;
+    }
+
+    #box>div {
+      margin: 10px;
+      background: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="add">add</button>
+  <button id="remove">remove</button>
+  <div id="box">
+    <div>item-1</div>
+  </div>
+</body>
+<script>
+  const box = document.getElementById('box');
+  const add = document.getElementById('add');
+  const remove = document.getElementById('remove');
+
+  add.onclick = function () {
+    const dom = document.createElement('div');
+    dom.innerText = `item-${box.children.length + 1}`;
+    box.append(dom);
+  }
+  remove.onclick = function () {
+    if (box.children.length === 0) { return }
+    box.removeChild(box.children[box.children.length - 1]);
+  }
+  // MutationObserver部分
+  const callback = function(info) {
+    for(let i of info){
+      console.log(i);
+    }
+  }
+  // 构造函数 详情见MDN
+  const observer = new MutationObserver(callback);
+ 
+  observer.observe(box, {
+    attributes: true, 
+    childList: true, 
+    subtree: true
+  })
+
+</script>
+
+</html>
