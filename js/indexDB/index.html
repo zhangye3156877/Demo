@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  // 创建数据库
+  var db;
+  // 连接数据库 名称 版本
+  var request = window.indexedDB.open('animal', 5);
+  request.onsuccess = function (e) {
+    db = e.target.result;
+    let newItem = {
+      id: 1,
+      name: '英国短毛猫',
+      area: 'UK',
+      hair: 'short'
+    };
+    let changedItem = {
+      id: 2,
+      name: '修改后的短毛猫',
+      area: 'UK',
+      hair: 'short'
+    };
+    // 增
+    db
+    .transaction('cat', 'readwrite')
+    .objectStore('cat')
+    .add(newItem);
+    // 删-输入主键
+    db
+    .transaction('cat', 'readwrite')
+    .objectStore('cat')
+    .delete(1);
+    // 改
+    db
+    .transaction('cat', 'readwrite')
+    .objectStore('cat')
+    .put(changedItem);
+    // 查-一切操作为异步
+    const info = db
+    .transaction('cat', 'readwrite')
+    .objectStore('cat')
+    .get(2);
+    info.onsuccess = function(e) {
+      console.log(e.target.result);
+    }
+  }
+  // 数据库版本更新监听
+  request.onupgradeneeded = function (e) {
+    db = e.target.result;
+    console.log(e.target)
+    // 创建一个数据库存储对象，并指定主键
+    // 判断有没有，无法修改新建字段需先删除再添加
+    if (Object.values(db.objectStoreNames).includes('cat')) {
+      db.deleteObjectStore('cat');
+    }
+    let store = db.createObjectStore('cat', {
+      keyPath: 'id',
+      autoIncrement: true
+    })
+    store.createIndex('id', 'id', {
+      unique: true
+    })
+    store.createIndex('name', 'name');// 假设为新增字段
+    store.createIndex('area', 'area');
+    store.createIndex('hair', 'hair');
+    console.log(db);
+  }
+
+
+
+</script>
+
+</html>

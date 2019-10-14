@@ -39,23 +39,23 @@
       0%,
       100% {
         clip: rect(0, 200px, 5px, 0);
-        /* clip-path: inset(0 0 5px 5px); */
+        /* clip-path: polygon(5px 0, 200px 0, 200px 195px, 5px 195px); */
       }
 
       25% {
         clip: rect(0, 200px, 200px, 195px);
-        /* clip-path: inset(5px 0 0 5px); */
+        /* clip-path: polygon(5px 5px, 200px 5px, 200px 200px, 5px 200px); */
       }
 
       50% {
         border-color: #00ff0088;
         clip: rect(195px, 200px, 200px, 0);
-        /* clip-path: inset(5px 5px 0 0); */
+        /* clip-path: polygon(0 5px, 195px 5px, 195px 200px, 0 200px); */
       }
 
       75% {
         clip: rect(0, 5px, 200px, 0px);
-        /* clip-path: inset(0 5px 5px 0); */
+        /* clip-path: polygon(0 0, 195px 0, 195px 195px, 0 195px); */
       }
     }
   </style>
