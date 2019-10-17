@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  ul{
+    width: 300px;
+    margin: 40px auto;
+  }
+  li{
+    list-style: none;
+    height: 100px;
+    border: 10px solid pink;
+  }
+  li:hover{
+    border: 10px solid peru;
+  }
+  li:first-child:hover{
+    outline: 10px solid palegreen;
+    outline-offset: -10px;
+  }
+  li:nth-child(2):hover{
+    outline: 10000px solid rgba(0,0,0,.7);
+  }
+</style>
+<body>
+  <h1>li1用向内偏移的outline掩盖border</h1>
+  <h1>li2用大于适口尺寸的outline代替蒙版效果</h1>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+</body>
+</html>
