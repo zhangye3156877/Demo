@@ -26,6 +26,8 @@
 				text-align: center;
 				line-height: normal;
 				cursor: default;
+				/* background-image: url(../x.jpg);
+				background-size: 90% 90%; */
 			}
 
 			.element:hover {
@@ -82,13 +84,13 @@
 	</head>
 	<body>
 
-		<div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> css3d - periodic table. <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank" rel="noopener">info</a>.</div>
+		<!-- <div id="info"><a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> css3d - periodic table. <a href="https://plus.google.com/113862800338869870683/posts/QcFk5HrWran" target="_blank" rel="noopener">info</a>.</div> -->
 		<div id="container"></div>
 		<div id="menu">
-			<button id="table">TABLE</button>
-			<button id="sphere">SPHERE</button>
-			<button id="helix">HELIX</button>
-			<button id="grid">GRID</button>
+			<button id="table">mode1</button>
+			<button id="sphere">mode2</button>
+			<button id="helix">mode3</button>
+			<button id="grid">mode4</button>
 		</div>
 
 		<script type="module">
@@ -219,7 +221,7 @@
 				"Ts", "Tennessine", "(294)", 17, 7,
 				"Og", "Oganesson", "(294)", 18, 7
 			];
-
+			console.log(table.length)
 			var camera, scene, renderer;
 			var controls;
 
@@ -252,11 +254,13 @@
 					var symbol = document.createElement( 'div' );
 					symbol.className = 'symbol';
 					symbol.textContent = table[ i ];
+					//symbol.textContent = 'SB';
 					element.appendChild( symbol );
 
 					var details = document.createElement( 'div' );
 					details.className = 'details';
 					details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
+					//details.innerHTML = '大连死精王' + '<br>' + '渣男认证';
 					element.appendChild( details );
 
 					var object = new CSS3DObject( element );
