@@ -133,3 +133,23 @@ function doStuff(arg: Foo | Bar) {
     console.log(arg.bar); // ok
   }
 }
+
+class Animal {
+  feet: number;
+  constructor(name: string, numFeet: number) {
+    this.feet = numFeet;
+  }
+}
+
+class Size {
+  feet: number;
+  constructor(meters: number) {
+    this.feet = meters;
+  }
+}
+
+let aa: Animal;
+let ss: Size;
+
+aa = ss; // OK
+ss = a; // OK
