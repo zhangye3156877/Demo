@@ -1,3 +1,6 @@
+  
+const Joi = require('joi');
+
 const GROUP_NAME = 'orders';
 
 module.exports = [
@@ -21,6 +24,11 @@ module.exports = [
     config: {
       tags: ['api', GROUP_NAME],
       description: '支付某条订单',
+      validate: {
+        params: {
+          orderId: Joi.string().required(),
+        }
+      }
     },
   },
 ];
