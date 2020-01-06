@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .wrapper{
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border: 1px solid red;
+      overflow: auto;
+    }
+    .long{
+      position: absolute;
+      width: 100%;
+      height: 1000px;
+    }
+    .list{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .list div{
+      text-align: center;
+      line-height: 100px;
+      font-size: 18px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="long"></div>
+    <div class="list">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+  </div>
+</body>
+<script>
+  const wrapper= document.querySelector('.wrapper');
+  const long= document.querySelector('.long');
+  const list= document.querySelector('.list');
+
+  wrapper.addEventListener('scroll', function(){
+    console.log(wrapper.scrollTop)
+    list.style.transform = `translate3d(0,${wrapper.scrollTop}px,0)`
+  })
+</script>
+</html>
