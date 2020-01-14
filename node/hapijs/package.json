@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "hapi": "16",
+    "hapi-pagination": "1",
     "hapi-swagger": "7",
     "inert": "4",
     "joi": "13",
