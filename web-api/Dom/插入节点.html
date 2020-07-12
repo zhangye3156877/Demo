@@ -15,9 +15,18 @@
   </div>
 </body>
 <script>
-  // 实现头部和尾部插入节点
-  const box = document.getElementById('box');
-  // 基本 
+  // appendChild 插入到节点末尾
+  // insertBefore 插入到指定节点之前
 
+
+  const box = document.getElementById('box');
+  const p = document.createElement('div');
+  p.appendChild(document.createTextNode('这是新增的内容'));
+  console.log(box.firstChild, box.lastChild)
+  box.insertBefore(p.cloneNode(true), box.firstChild);
+  box.insertBefore(p.cloneNode(true), box.firstChild.nextSibling.nextSibling.nextSibling);
+  box.insertBefore(p.cloneNode(true), box.lastChild);
+  box.insertBefore(p.cloneNode(true), null);
+  
 </script>
 </html>
