@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div">
+    <p id="p1">1</p>
+    <p id="p2">2</p>
+    <p id="p3">3</p>
+    <p id="p4">4</p>  
+  </div>
+</body>
+<script>
+  // e.target 事件触发对象 
+  // e.currentTarget 事件绑定对象
+  const collects = document.querySelectorAll('#div,#div > p');
+  const clickEventList = Array.from(collects).map(item => {
+    return {
+      id:item.id,
+      callback(e) {
+        console.log(e.target.nodeName)
+      }
+    }
+  })
+
+  document.addEventListener('click', (e) => {
+    console.log(e.target, e.currentTarget);
+    for (let i = 0; i < clickEventList.length; i++){
+      if(e.target.id === clickEventList[i].id){
+        return clickEventList[i].callback(e)
+      }
+    }
+  })
+</script>
+</html>
