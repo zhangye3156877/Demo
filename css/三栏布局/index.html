@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .box{
+    width: 100%;
+    height: 300px;
+  }
+  h1{
+    height: 100px;
+  }
+  .w1{
+    padding: 0 100px;
+    height: 100px;
+  }
+  .w1 div{
+    height: 100px;
+    float: left;
+  }
+  .w1 .center{
+    width: 100%;
+    background-color: aqua;
+  }
+  .w1 .left{
+    width: 100px;
+    margin-left: -100%;
+    background: blue;
+    position: relative;
+    left: -100px;
+  }
+  .w1 .right{
+    width: 100px;
+    margin-left: -100px;
+    background: red;
+    position: relative;
+    right: -100px;
+  }
+
+  .w2{
+    float: left;
+    height: 100px;
+  }
+  .w2.container{
+    width: 100%;
+    /* padding: 0 100px; */
+  }
+  .w2 .center{
+    margin: 0 100px;
+    height: 100px;
+    background-color: aqua;
+  }
+  .w2.left{
+    width: 100px;
+    margin-left: -100%;
+    background: blue;
+  }
+  .w2.right{
+    width: 100px;
+    margin-left: -100px;
+    background: red;
+  }
+
+  .w3{
+    display: flex;
+    justify-content: space-between;
+  }
+  .w3 div{
+    height: 100px;
+  }
+  .w3 .center{
+    background: aqua;
+    flex: 1;
+  }
+  .w3 .left{
+    background: blue;
+    width: 100px;
+  }
+  .w3 .right{
+    background: red;
+    flex-basis: 100px;
+  }
+</style>
+<body>
+  <div class="box">
+    <h1>圣杯布局</h1>
+    <div class="w1">
+      <div class="center"></div>
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </div>
+  <div class="box">
+    <h1>双飞翼布局</h1>
+    <div class="w2 container">
+      <div class="center">
+      </div>
+    </div>
+    <div class="left w2"></div>
+    <div class="right w2"></div>
+  </div>
+  <div class="box w3">
+    <div class="left"></div>
+    <div class="center"></div>
+    <div class="right"></div>
+  </div>
+</body>
+</html>
