@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .top{
+      width: 400px;
+      height: 200px;
+      background-color: blue;
+    }
+    .foot{
+      width: 400px;
+      height: 200px;
+      background-color: red;
+    }
+    .center{
+      width: 400px;
+      height: 400px;
+      background-color: burlywood;
+      overflow: hidden;
+      position: relative;
+    }
+    .ball{
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      margin-top: 150px;
+      background-color: chartreuse;
+      border-radius: 50%;
+      animation: a 5s forwards;
+    }
+    @keyframes a {
+      from{
+        left: 0px;
+      }
+      to{
+        left: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top"></div>
+  <div class="center">
+    <div class="ball"></div>
+  </div>
+  <div class="foot"></div>
+</body>
+</html>
