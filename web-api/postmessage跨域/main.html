@@ -20,6 +20,7 @@
 <script>
   const child = document.getElementsByTagName('iframe')[0];
   const btn = document.getElementById('btn');
+  localStorage.a ='12345';
   btn.addEventListener('click', () => {
     child.contentWindow.postMessage(new Date(), '*');
   })
