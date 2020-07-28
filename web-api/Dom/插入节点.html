@@ -16,6 +16,7 @@
 </body>
 <script>
   // appendChild 插入到节点末尾
+  // append 插入节点到末尾，可以插入字符串
   // insertBefore 插入到指定节点之前
 
 
@@ -27,6 +28,7 @@
   box.insertBefore(p.cloneNode(true), box.firstChild.nextSibling.nextSibling.nextSibling);
   box.insertBefore(p.cloneNode(true), box.lastChild);
   box.insertBefore(p.cloneNode(true), null);
+  box.append('这是append的字符串')
   
 </script>
 </html>
