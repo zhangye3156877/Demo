@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+  <h2>async脚本立即下载并执行，defer等到DOMContentLoaded前执行</h2>
+</body>
+<script src="./s0.js"></script>
+<script src="./s1.js" async></script>
+<script src="./s2.js" async></script>
+<script src="./s3.js" async></script>
+<script src="./s4.js" defer></script>
+<script src="./s5.js"></script>
+<script>
+  window.onload = function(){
+    console.log('window onload')
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded')
+  }) 
+</script>
+</html>
