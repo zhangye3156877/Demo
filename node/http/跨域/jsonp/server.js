@@ -19,8 +19,9 @@ const server = http.createServer((req, res) => {
     
     if (keys.callback){
       res.end('callback(100)');
+    } else {
+      res.end('无query返回');
     }
-    res.end('无query返回');
   } else if (urls === '/ajax.js') {
     const file = fs.readFileSync(path.resolve(__dirname,'ajax.js'));
     res.writeHeader(200, {
