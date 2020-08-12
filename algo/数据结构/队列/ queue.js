@@ -1,8 +1,9 @@
+//单向队列
 class Queue {
-  #item = {}
+  #item = {};
   #count = 0;
   #head = 0;
-  
+
   push(...value){
     if (value.length === 0){
       return 0
@@ -12,28 +13,29 @@ class Queue {
     }
     return value[value.length - 1];
   }
-  pop(){
+  shift(){
     if (this.isEmpty()){
       return undefined;
     }
-    const result = this.#item[this.#count - 1];
-    delete this.#item[--this.#count];
+    const result = this.#item[this.#head];
+    delete this.#item[this.#head++];
     return result;
   }
   peek(){
     if (this.isEmpty()){
       return undefined;
     }
-    return this.#item[this.#count - 1];
+    return this.#item[this.#head];
   }
   isEmpty(){
-    return this.#count === 0;
+    return this.#count - this.#head === 0;
   }
   clear(){
     this.#item = {};
     this.#count = 0;
+    this.#head = 0;
   }
   size(){
-    return this.#count;
+    return this.#count - this.#head;
   }
 }
