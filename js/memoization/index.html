@@ -24,6 +24,9 @@
   })(ji)
 
   function ji(x) {
+    if (x< 1){
+      throw new Error('数字应该大于1');
+    }
     if (x === 1) {
       return 1
     }
@@ -31,9 +34,9 @@
   }
 
 
-  var y1 = memo(5, ji)
-  var y2 = memo(6, ji)
-  var y3 = memo(1, ji)
+  var y1 = memo(5)
+  var y2 = memo(6)
+  var y3 = memo(1)
 </script>
 
 </html>
