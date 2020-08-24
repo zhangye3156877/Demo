@@ -1,17 +1,24 @@
-import _ from 'lodash';
-import print from './print';
+// import _ from 'lodash';
+import print, {a} from './print';
+import './style.css';
+console.log(a(1,2))
+// function component() {
+//   return import (/* webpackChunkname: "lodash"*/ 'lodash').then(({default: _}) => {
+//     const element = document.createElement('div');
+//     element.innerHTML = _.join(['hello', 'wolrd'], '');
+//     return element;
 
+//   }).catch(err => console.log(err))
+// }
 
-function component() {
-  const element = document.createElement('div');
-  const btn = document.createElement('button');
-  btn.innerHTML = '点击';
-  btn.onclick = print;
-
-  element.innerHTML =_.join(['hello', 'webpack'], '');
-
-  element.append(btn);
-  return element;
-}
-
-document.body.append(component());
+// component().then((component) => {
+//   document.body.append(component);
+//   console.log(process.env.production)
+// })
+// document.addEventListener('click', print)
+// if (module.hot) {
+//   module.hot.accept('./print.js', function() {
+//     document.removeEventListener('click', print);
+//     document.addEventListener('click', print)
+//   })
+// }
